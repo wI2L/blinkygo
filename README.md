@@ -106,6 +106,7 @@ err := bt.SwitchOff()
 There is three different ways to create a `Color` instance.
 
 __RGB triplet__
+
 ```go
 blue := blinky.NewRGBColor(0, 0, 255)
 white :=  blinky.NewRGBColor(255, 255, 255)
@@ -113,7 +114,9 @@ red := blinky.NewRGBColor(255, 0, 0)
 ```
 
 __HTML hex color-string format__
+
 The first character `#` of the hex color-string format is optional and can be omitted.
+
 ```go
 purple, _ := blinky.NewHEXColor("#800080")
 orange, _ := blinky.NewHEXColor("FFA500")
@@ -121,8 +124,10 @@ pink, _ := blinky.NewHEXColor("#F06")
 ```
 
 __Named color__
+
 Supported names are from the _colornames_ package, see https://godoc.org/golang.org/x/image/colornames
 `NewHEXColor()` and `NewNamedColor()` will return an error if the input format is invalid or the name is unknown.
+
 ```go
 olive, _ := blinky.NewNamedColor("Olive")
 violet, _ := blinky.NewNamedColor("Violet")
