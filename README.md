@@ -1,7 +1,7 @@
 # BlinkyGo
 
 [![GoDoc](https://godoc.org/github.com/wI2l/blinkygo?status.svg)](https://godoc.org/github.com/wI2l/blinkygo)
-![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 A well featured package that allow you control your [**BlinkyTape LED strip**](http://blinkinlabs.com/blinkytape/) from _BlinkyLabs_, using the [Go Programming language](golang.org).
 
@@ -260,5 +260,5 @@ If you create a nice pattern manually of with *PatternPaint* and want to share i
 
 ## License
 
-Copyright (c) 2016, William Poussier <william.poussier@gmail.com>   
+Copyright (c) 2016, William Poussier <william.poussier@gmail.com>
 BlinkyGo is released under a MIT style license.
