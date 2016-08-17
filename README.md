@@ -180,7 +180,7 @@ anim := blinky.Animation{
 }
 ```
    - `repeat` indicate how many times the pattern must be played. A negative number will run an infinite loop.
-   - `speed` is a convenient and simple way to add a delay between each frame. The delay (millisecond) is calculated like that: `1000 / speed`
+   - `speed` is a convenient and simple way to add a delay between each frame. The delay, expressed in milliseconds, is calculated as `1000 / speed`.
 
 __Play an animation__
 
@@ -202,7 +202,7 @@ config := blinky.AnimationConfig{
 bt.Play(&anim, &config)
 ```
 
-**NOTES:**
+Notes:
 
    - You can't change the state of the LED strip nor rendering while an animation is being played. This is only possible while an animation is stopped or paused.
 
@@ -254,7 +254,7 @@ if err != nil {
 
 You can find pattern examples in the folder `patterns` of this repository.
 
-### Share yours
+## Share yours
 
 If you create a nice pattern manually of with *PatternPaint* and want to share it with others, send me a mail with the pattern attached to it, and i will add it to the repository.
 
