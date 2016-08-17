@@ -67,9 +67,11 @@ type BlinkyTape struct {
 	buffer               bytes.Buffer
 	stop, pause, resume  chan struct{}
 	position             uint
-	PixelCount           uint
 	status               AnimationStatus
 	mutex                sync.Mutex
+
+	// PixelCount is the number of pixels the LED strip was initialized with.
+	PixelCount uint
 }
 
 // NewBlinkyTape creates a new BlinkyTape instance.
@@ -79,17 +81,17 @@ func NewBlinkyTape(portName string, count uint) (*BlinkyTape, error) {
 		return nil, ErrNoPixels
 	}
 
-	config := serial.Config{
+	config := &serial.Config{
 		Name:        portName,
 		Baud:        115200,
 		ReadTimeout: time.Millisecond * 500,
 	}
-	port, err := serial.OpenPort(&config)
+	port, err := serial.OpenPort(config)
 	if err != nil {
 		return nil, err
 	}
 
-	blinky := BlinkyTape{
+	blinky := &BlinkyTape{
 		serial:     port,
 		currState:  make([]Pixel, count),
 		nextState:  make([]Pixel, count),
@@ -106,7 +108,7 @@ func NewBlinkyTape(portName string, count uint) (*BlinkyTape, error) {
 	if err := blinky.sendBytes([]byte{ControlHeader}); err != nil {
 		return nil, err
 	}
-	return &blinky, nil
+	return blinky, nil
 }
 
 // Close closes the serial port.
@@ -203,8 +205,8 @@ func (bt *BlinkyTape) Status() AnimationStatus {
 
 func (bt *BlinkyTape) updateStatus(as AnimationStatus) {
 	bt.mutex.Lock()
+	defer bt.mutex.Unlock()
 	bt.status = as
-	bt.mutex.Unlock()
 }
 
 // IsRunning returns whether or not an animation is running.
@@ -218,20 +220,20 @@ func (bt *BlinkyTape) IsRunning() bool {
 // If there is no animation being played or paused, do nothing.
 func (bt *BlinkyTape) Stop() {
 	bt.mutex.Lock()
+	defer bt.mutex.Unlock()
 	if bt.status == StatusRunning || bt.status == StatusPaused {
 		bt.stop <- struct{}{}
 	}
-	bt.mutex.Unlock()
 }
 
 // Pause pauses the animation being played on the LED strip.
 // If there is no animation being played, do nothing.
 func (bt *BlinkyTape) Pause() {
 	bt.mutex.Lock()
+	defer bt.mutex.Unlock()
 	if bt.status == StatusRunning {
 		bt.pause <- struct{}{}
 	}
-	bt.mutex.Unlock()
 }
 
 // Resume resumes a previous animation that was paused.
@@ -240,10 +242,10 @@ func (bt *BlinkyTape) Pause() {
 // If there is no animation to resume, do nothing.
 func (bt *BlinkyTape) Resume() {
 	bt.mutex.Lock()
+	defer bt.mutex.Unlock()
 	if bt.status == StatusPaused {
 		bt.resume <- struct{}{}
 	}
-	bt.mutex.Unlock()
 }
 
 func (bt *BlinkyTape) animation(p Pattern, repeat int, delay time.Duration) {

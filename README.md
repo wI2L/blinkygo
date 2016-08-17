@@ -124,6 +124,7 @@ purple, _ := blinky.NewHEXColor("#800080")
 orange, _ := blinky.NewHEXColor("FFA500")
 pink, _ := blinky.NewHEXColor("#F06")
 ```
+The first character `#` of the hex color-string format is optional and can be omitted.
 
 __Named color__
 ```go
@@ -172,7 +173,7 @@ if err != nil {
 
 ```go
 p, _ := blinky.NewPatternFromImage("cylon.png", 60)
-anim := blinky.Animation{
+anim := &blinky.Animation{
    Name:    "clyon",
    Repeat:  10,
    Speed:   50
@@ -187,7 +188,7 @@ __Play an animation__
 ```go
 bt, err := blinky.NewBlinkyTape("/dev/tty.usbmodem1421", 60)
 // error handling
-bt.Play(&anim, nil)
+bt.Play(anim, nil)
 ```
 
 You can also provide a configuration struct to override the animation parameters. It allows you to define a specific delay to use between each frame.
@@ -195,11 +196,11 @@ You can also provide a configuration struct to override the animation parameters
 ```go
 // Configure the animation to play the pattern indefinitely,
 // with a delay of 66ms between each frame
-config := blinky.AnimationConfig{
+config := &blinky.AnimationConfig{
    Repeat:  -1,
    Delay:   66 * time.Millisecond,
 }
-bt.Play(&anim, &config)
+bt.Play(anim, config)
 ```
 
 Notes:
