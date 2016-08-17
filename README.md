@@ -113,21 +113,20 @@ red := blinky.NewRGBColor(255, 0, 0)
 ```
 
 __HTML hex color-string format__
+The first character `#` of the hex color-string format is optional and can be omitted.
 ```go
 purple, _ := blinky.NewHEXColor("#800080")
 orange, _ := blinky.NewHEXColor("FFA500")
 pink, _ := blinky.NewHEXColor("#F06")
 ```
-The first character `#` of the hex color-string format is optional and can be omitted.
 
 __Named color__
+Supported names are from the _colornames_ package, see https://godoc.org/golang.org/x/image/colornames
+`NewHEXColor()` and `NewNamedColor()` will return an error if the input format is invalid or the name is unknown.
 ```go
 olive, _ := blinky.NewNamedColor("Olive")
 violet, _ := blinky.NewNamedColor("Violet")
 ```
-Supported names are from the _colornames_ package, see https://godoc.org/golang.org/x/image/colornames
-`NewHEXColor()` and `NewNamedColor()` will return an error if the input format is invalid or the name is unknown.
-<br>
 
 ## Patterns
 
@@ -152,20 +151,19 @@ _PatternPaint_ can export a pattern drawn with it as an Arduino C Header. You ca
 ```go
 pattern, err := blinky.NewPatternFromArduinoExport("pattern.h")
 ```
-<br>
 
 ## Animations
 
 An `Animation` is the composition of a `Pattern` and a set of parameters to define how it should be played, and how many times.
 
-You can create an animation instance literally, or import it from a file.
+You can import an animation from a file
 ```go
 anim, err := NewAnimationFromFile("animation.json")
 if err != nil {
    // do whatever you want with the animation
 }
 ```
-
+or create it literally
 ```go
 p, _ := blinky.NewPatternFromImage("cylon.png", 60)
 anim := &blinky.Animation{
@@ -246,13 +244,9 @@ if err != nil {
 }
 ```
 
-### Examples
-
-You can find pattern examples in the folder `patterns` of this repository.
-
 ## Share yours
 
-If you create a nice pattern manually of with *PatternPaint* and want to share it with others, send me a mail with the pattern attached to it, and i will add it to the repository.
+If you create a nice pattern manually of with *PatternPaint* and want to share it with others, send me a mail and i will add it to the repository. You can find a bunch of patterns in [this folder](/patterns)
 
 ## License
 
