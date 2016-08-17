@@ -1,9 +1,9 @@
 # BlinkyGo
 
-A well featured package that allow you control your [**BlinkyTape LED strip**](http://blinkinlabs.com/blinkytape/) from _BlinkyLabs_, using the [Go Programming language](golang.org).
-
 [![GoDoc](https://godoc.org/github.com/wI2l/blinkygo?status.svg)](https://godoc.org/github.com/wI2l/blinkygo)
 ![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+
+A well featured package that allow you control your [**BlinkyTape LED strip**](http://blinkinlabs.com/blinkytape/) from _BlinkyLabs_, using the [Go Programming language](golang.org).
 
 
 #### Installation
@@ -139,6 +139,7 @@ Supported names are from the _colornames_ package, see https://godoc.org/golang.
 A `Pattern` is a list of `Frame`, each containing a list of pixels. Patterns can be used to create an `Animation`. You create them manually, or from an external source like an Arduino C header file exported by PatternPaint, or an image.
 
 __Decoding an image__
+
 A pattern can be decoded from an image. You have to indicate how many pixels should be extracted per frame.
 
 Frames will be extracted from axis `y`. If the number of pixels to extract is lower than the image's height, the rest of the pixels in each frame will be black. Instead, if the image's height is greater, then it will be resized to the exact dimension while preserving the original image aspect ratio.
@@ -150,6 +151,7 @@ pattern, err := blinky.NewPatternFromImage("pattern.png", 60)
 ```
 
 __Parsing an Arduino header__
+
 _PatternPaint_ can export a pattern drawn with it as an Arduino C Header. You can parse them as well to create a pattern.
 
 ```go
