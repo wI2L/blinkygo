@@ -127,13 +127,13 @@ pink, _ := blinky.NewHEXColor("#F06")
 
 __Named color__
 
-Supported names are from the _colornames_ package, see https://godoc.org/golang.org/x/image/colornames
-`NewHEXColor()` and `NewNamedColor()` will return an error if the input format is invalid or the name is unknown.
+Supported names are from the _colornames_ package, see https://godoc.org/golang.org/x/image/colornames.   
 
 ```go
 olive, _ := blinky.NewNamedColor("Olive")
 violet, _ := blinky.NewNamedColor("Violet")
 ```
+`NewHEXColor()` and `NewNamedColor()` will return an error if the input format is invalid or the name is unknown.
 
 ## Patterns
 
@@ -257,5 +257,5 @@ If you create a nice pattern manually of with *PatternPaint* and want to share i
 
 ## License
 
-Copyright (c) 2016, William Poussier <william.poussier@gmail.com>
+Copyright (c) 2016, William Poussier <william.poussier@gmail.com>   
 BlinkyGo is released under a MIT [Licence](/LICENSE)
