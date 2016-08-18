@@ -1,6 +1,8 @@
-# BlinkyGo [![GoDoc](https://godoc.org/github.com/wI2l/blinkygo?status.svg)](https://godoc.org/github.com/wI2l/blinkygo)
+# BlinkyGo
 
 A simple, well featured library that let you control your [**BlinkyTape LED strip**](http://blinkinlabs.com/blinkytape/) from _BlinkyLabs_, using the [Go Programming language](golang.org).
+
+[![GoDoc](https://godoc.org/github.com/wI2l/blinkygo?status.svg)](https://godoc.org/github.com/wI2l/blinkygo)
 
 ### Installation
 
@@ -255,5 +257,5 @@ If you create a nice pattern manually of with *PatternPaint* and want to share i
 
 ## License
 
-Copyright (c) 2016, William Poussier <william.poussier@gmail.com>   
+Copyright (c) 2016, William Poussier <william.poussier@gmail.com>
 BlinkyGo is released under a MIT [Licence](/LICENSE)

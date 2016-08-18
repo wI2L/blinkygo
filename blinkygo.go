@@ -28,7 +28,6 @@ package blinkygo
 
 import (
 	"bytes"
-	"log"
 	"sync"
 	"time"
 
@@ -200,6 +199,8 @@ func (bt *BlinkyTape) Play(a *Animation, cfg *AnimationConfig) {
 
 // Status returns the animation status of the LED strip.
 func (bt *BlinkyTape) Status() AnimationStatus {
+	bt.mutex.Lock()
+	defer bt.mutex.Unlock()
 	return bt.status
 }
 
@@ -211,7 +212,7 @@ func (bt *BlinkyTape) updateStatus(as AnimationStatus) {
 
 // IsRunning returns whether or not an animation is running.
 func (bt *BlinkyTape) IsRunning() bool {
-	return bt.status == StatusRunning
+	return bt.Status() == StatusRunning
 }
 
 // Stop stops the animation being played on the LED strip. A stop can
@@ -276,9 +277,9 @@ func (bt *BlinkyTape) playPattern(p Pattern, delay time.Duration) bool {
 		bt.setPixels(frame)
 
 		if err := bt.render(); err != nil {
-			log.Fatalf("render error: %s\n", err)
+			// if the frame cannot be rendered, skip it
+			continue
 		}
-
 		timer := timer.NewTimer(delay)
 		timer.Start()
 
