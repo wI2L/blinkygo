@@ -1,8 +1,8 @@
 # BlinkyGo
 
-A simple, well featured library that let you control your [**BlinkyTape LED strip**](http://blinkinlabs.com/blinkytape/) from _BlinkyLabs_, using the [Go Programming language](golang.org).
+[![GoDoc](https://godoc.org/github.com/wI2l/blinkygo?status.svg)](https://godoc.org/github.com/wI2l/blinkygo) [![Go Report Card](https://goreportcard.com/badge/github.com/wI2L/blinkygo)](https://goreportcard.com/report/github.com/wI2L/blinkygo)
 
-[![GoDoc](https://godoc.org/github.com/wI2l/blinkygo?status.svg)](https://godoc.org/github.com/wI2l/blinkygo)
+A simple, well featured library that let you control your [**BlinkyTape LED strip**](http://blinkinlabs.com/blinkytape/) from _BlinkyLabs_, using the [Go Programming language](golang.org).
 
 ### Installation
 
