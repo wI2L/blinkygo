@@ -257,5 +257,4 @@ If you create a nice pattern manually of with *PatternPaint* and want to share i
 
 ## License
 
-Copyright (c) 2016, William Poussier <william.poussier@gmail.com>   
-BlinkyGo is released under a MIT [Licence](/LICENSE)
+Copyright (c) 2016, William Poussier (MIT Licence)
