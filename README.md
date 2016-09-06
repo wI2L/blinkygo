@@ -1,8 +1,8 @@
 # BlinkyGo
 
-A simple, well featured library that let you control your [**BlinkyTape LED strip**](http://blinkinlabs.com/blinkytape/) from _BlinkyLabs_, using the [Go Programming language](golang.org).
+[![GoDoc](https://godoc.org/github.com/wI2l/blinkygo?status.svg)](https://godoc.org/github.com/wI2l/blinkygo) [![Go Report Card](https://goreportcard.com/badge/github.com/wI2L/blinkygo)](https://goreportcard.com/report/github.com/wI2L/blinkygo) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
-[![GoDoc](https://godoc.org/github.com/wI2l/blinkygo?status.svg)](https://godoc.org/github.com/wI2l/blinkygo)
+A simple, well featured library that let you control your [**BlinkyTape LED strip**](http://blinkinlabs.com/blinkytape/) from _BlinkyLabs_, using the [Go Programming language](golang.org).
 
 ### Installation
 
@@ -127,13 +127,13 @@ pink, _ := blinky.NewHEXColor("#F06")
 
 __Named color__
 
-Supported names are from the _colornames_ package, see https://godoc.org/golang.org/x/image/colornames
-`NewHEXColor()` and `NewNamedColor()` will return an error if the input format is invalid or the name is unknown.
+Supported names are from the _colornames_ package, see https://godoc.org/golang.org/x/image/colornames.   
 
 ```go
 olive, _ := blinky.NewNamedColor("Olive")
 violet, _ := blinky.NewNamedColor("Violet")
 ```
+`NewHEXColor()` and `NewNamedColor()` will return an error if the input format is invalid or the name is unknown.
 
 ## Patterns
 
@@ -257,5 +257,4 @@ If you create a nice pattern manually of with *PatternPaint* and want to share i
 
 ## License
 
-Copyright (c) 2016, William Poussier <william.poussier@gmail.com>
-BlinkyGo is released under a MIT [Licence](/LICENSE)
+Copyright (c) 2016, William Poussier (MIT Licence)
