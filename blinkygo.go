@@ -40,7 +40,7 @@ const (
 	ControlHeader byte = 0xFF
 
 	// AnimationDefaultDelay is the default delay to wait between two frames
-	// of an pattern.
+	// of a pattern.
 	AnimationDefaultDelay time.Duration = 75 * time.Millisecond
 )
 
