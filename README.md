@@ -65,7 +65,7 @@ pixels := [Pixel{Color: color}]
 err := bt.SetPixels(pixels)
 ```
 
-Set a list of pixels, starting from the beginning. If the slice provided as argument contains more pixels than the BlinkyTape instance was initialized for, the remaining will be genly ignored.
+Set a list of pixels, starting from the beginning. If the slice provided as argument contains more pixels than the BlinkyTape instance was initialized for, the remaining will be gently ignored.
 
 ###  Set a color
 
