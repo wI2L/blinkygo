@@ -7,7 +7,7 @@ A simple, well featured library that let you control your [**BlinkyTape LED stri
 ### Installation
 
 ```sh
-$ go get github.com/wI2L/blinkygo
+$ go get -u github.com/wI2L/blinkygo
 ```
 
 ## Basics
